@@ -27,8 +27,10 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
 
-let [currentDate, setCurrentDate] = useState(null)
+let [selectedMode, setSelectedMode] = useState(null);
+let [currentDate, setCurrentDate] = useState(null);
 let [dates, setDates] = useState([])
+
 function addEvent() {
   let dateEvent = prompt('      Enter event time:\nYYYY-MM-DD HH:mm:ss')
   let date = new Date(dateEvent)
@@ -44,8 +46,8 @@ function addEvent() {
           <Header addEvent={addEvent} />
           <Calendar setCurrentDate={setCurrentDate} currentDate={currentDate} />
         </StyledHeader>
-        <Body dates={dates} />
-        <Footer />
+        <Body setSelectedMode={setSelectedMode} />
+        <Footer selectedMode={selectedMode} />
       </StyledApp>
     </>
   )

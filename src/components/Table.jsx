@@ -39,14 +39,17 @@ for (let i = 1; i < 25; i++) {
   time.push(<tr key={i}><StyledTdTime>{i}:00</StyledTdTime></tr>)
 }
 
-function Body(props) {
+function Body({setSelectedMode}) {
   
 const [activeCell, setActiveCell] = useState(null);
+
 const handleCellClick = (event) => {
   if (activeCell) {
     activeCell.classList.remove('active');
+    setSelectedMode(null);
   }
   event.target.classList.add('active');
+  setSelectedMode(event.target)
   setActiveCell(event.target);
 };
 

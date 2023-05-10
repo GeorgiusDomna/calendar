@@ -19,13 +19,14 @@ margin: 25px;
 }
 `
 
-function Footer() {
+function Footer(props) {
+
   return (
     <StyledFooter>
       <StyledBtn>
         Today
       </StyledBtn>
-      <StyledBtn className="none">
+      <StyledBtn className={props.selectedMode ? "" : "none"} >
         Delete
       </StyledBtn>
     </StyledFooter>
